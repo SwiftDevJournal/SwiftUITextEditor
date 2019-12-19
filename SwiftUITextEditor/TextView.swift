@@ -18,11 +18,28 @@ struct TextView: UIViewRepresentable {
         view.isEditable = true
         view.isUserInteractionEnabled = true
         view.contentInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5)
+        view.delegate = context.coordinator
         return view
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         
+    }
+    
+    func makeCoordinator() -> TextView.Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, UITextViewDelegate {
+        var control: TextView
+        
+        init(_ control: TextView) {
+            self.control = control
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            control.document.text = textView.text
+        }
     }
 }
 
