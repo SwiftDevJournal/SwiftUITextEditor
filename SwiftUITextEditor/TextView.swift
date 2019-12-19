@@ -39,6 +39,7 @@ struct TextView: UIViewRepresentable {
         
         func textViewDidChange(_ textView: UITextView) {
             control.document.text = textView.text
+            control.document.updateChangeCount(.done)
         }
     }
 }
