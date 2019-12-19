@@ -7,10 +7,21 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct TextView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct TextView: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UITextView {
+        let view = UITextView()
+        view.isScrollEnabled = true
+        view.isEditable = true
+        view.isUserInteractionEnabled = true
+        view.contentInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        
     }
 }
 
