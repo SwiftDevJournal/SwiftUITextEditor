@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DocumentView: View {
-    var document: UIDocument
+    @State var document: Document
     var dismiss: () -> Void
 
     var body: some View {
@@ -20,7 +20,7 @@ struct DocumentView: View {
 
                 Text(document.fileURL.lastPathComponent)
             }
-            TextView()
+            TextView(document: $document)
             Button("Done", action: dismiss)
         }
     }
