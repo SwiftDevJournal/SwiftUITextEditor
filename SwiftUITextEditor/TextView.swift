@@ -23,7 +23,7 @@ struct TextView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
-        
+        uiView.text = document.text
     }
     
     func makeCoordinator() -> TextView.Coordinator {
