@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 
 struct TextView: UIViewRepresentable {
+    @Binding var document: Document
     
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
